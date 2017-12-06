@@ -44,7 +44,7 @@ class Table {
 
         #if defined(DISTANCEVECTOR)
 		map<int, TopoLink> neighborLinks;
-		map<int, TopoLink> neighborLinks;
+		map<int, TopoLink> distanceVector;
 		map<int, int> edgeTo; 
         #endif
 };
