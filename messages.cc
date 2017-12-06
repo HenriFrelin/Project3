@@ -21,17 +21,37 @@ ostream &RoutingMessage::Print(ostream &os) const
 #endif
 
 #if defined(LINKSTATE)
+
+RoutingMessage::RoutingMessage(int a, int s, int d, int l){
+	age = a;
+	source = s;
+	destination = d;
+	latency = l;
+	
+}
+
 ostream &RoutingMessage::Print(ostream &os) const
 {
-    os << "LinkState RoutingMessage()";
-    return os;
+	os << "LinkState RoutingMessage()";
+	os << "Age: " << age << std::endl;
+	os << "Source: " << source << std::endl;
+	os << "Destination: " << destination << std::endl;
+	os << "Latency: " << latency << std:: endl;	
+	return os;
 }
 #endif
 
 #if defined(DISTANCEVECTOR)
+
+RoutingMessage::RoutingMessage(int n, map<int, TopoLink> d){
+	node = n;
+	distanceVector = d;
+}
 ostream &RoutingMessage::Print(ostream &os) const
 {
-    os << "DistanceVector RoutingMessage()";
-    return os;
+	os << "DistanceVector RoutingMessage()";
+	os << "NODE: " << node << std::endl;
+	os << "DistanceVector: " << d << std::endl;
+	return os;
 }
 #endif
