@@ -83,8 +83,8 @@ void LinkState::Dijkstra(){
 void LinkState::ProcessIncomingRoutingMessage(RoutingMessage *m) {
     cerr << *this << " got a routing message: " << *m << " (ignored)" << endl;
     int src = m->source;
-    int destn = m->dest;
-    int latency = m->lat;
+    int destn = m->destination;
+    int latency = m->latency;
     int age1 = m->age;
     if(routing_table.topo[src][destn].cost == -1 || routing_table.topo[src][dest].age < age1){
       routing_table.topo[src][destn].cost = latency;
