@@ -40,8 +40,8 @@ ostream & Table::Print(ostream &os) const
 			c++;
 		}
 		r++;
-	}  
-  
+	}
+
 	return os;
 }
 #endif
@@ -52,15 +52,15 @@ ostream & Table::Print(ostream &os) const
 	os << "DistanceVector Table()";
 	map<int, TopoLink>::const_iterator i = distanceVector.begin();
 	while(i !=  distanceVector.end()){
-		os << "NODE: " << (i*).first << "DISTANCE: " << (i*).second.cost << std::endl;
+		os << "NODE: " << (*i).first << "DISTANCE: " << (*i).second.cost << std::endl;
 		i++;
-	}	
+	}
 	os << "NEIGHBOR LIST: " << std::endl;
 	i = neighborLinks.begin();
 	while(i != neighborLinks.end()){
-		os << "NODE: " << (i*).first << "DISTANCE: " << (i*).second.cost << std::endl;
+		os << "NODE: " << (*i).first << "DISTANCE: " << (*i).second.cost << std::endl;
 		i++;
-	}	
+	}
 
 	return os;
 }
