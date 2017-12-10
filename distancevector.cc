@@ -34,14 +34,14 @@ void DistanceVector::LinkHasBeenUpdated(Link* l) {
 
 void DistanceVector::ProcessIncomingRoutingMessage(RoutingMessage *m) {
     cerr << *this << " got a routing message: " << *m << " (ignored)" << endl;
-    routing_table.topo[m->sendingNode] = m-> distanceVector;
+    routing_table.topo[m->node] = m-> distanceVector;
     map<int,TopoLink>::const_iterator i;
     for(i = m->distanceVector.begin(); i != m->distanceVector.end(); i++){ //////////////////////////////CHECK THIS////////////////////
-      if(routing_table.distaneVector[i->first].cost == -1){
+      if(routing_table.distanceVector[i->first].cost == -1){
         //do something
       }
     }
-    if(update()){
+    if(updateDV()){
       SendToNeighbors(new RoutingMessage(number, routing_table.distanceVector));
     }
 }
@@ -57,8 +57,8 @@ Node* DistanceVector::GetNextHop(Node *d) {
 }
 
 Table* DistanceVector::GetRoutingTable() {
-    Table *table = new Table(touring_table);
-    return NULL;
+    Table *table = new Table(routing_table);
+    return table;
 }
 
 ostream & DistanceVector::Print(ostream &os) const {
@@ -66,7 +66,7 @@ ostream & DistanceVector::Print(ostream &os) const {
     return os;
 }
 
-bool DistanceVector::update(){
+bool DistanceVector::updateDV(){
   bool updated = false;
   map<int,TopoLink>:: const_iterator i;
   map<int,TopoLink>:: const_iterator n;
