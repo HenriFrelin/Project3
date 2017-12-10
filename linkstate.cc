@@ -34,7 +34,7 @@ void LinkState::LinkHasBeenUpdated(Link* l) {
     SendToNeighbors(new RoutingMessage());
 }
 
-void LinkState::Dijkstra(){
+void LinkState::Dijk(){
   map<int, map<int,TopoLink>>::const_iterator i;
   for(i = routing_table.topo.begin(); i != routing_table.topo.end(); i++){
     routing_table.topo[i->first][i->first].cost = 0;
