@@ -31,11 +31,11 @@ void LinkState::LinkHasBeenUpdated(Link* l) {
     int age = routing_table.topo[source][dest].age;
     Dijk();
     routing_table.changed = true;
-    SendToNeighbors(new RoutingMessage());
+    SendToNeighbors(new RoutingMessage(), age, source, dest, lat);
 }
 
 void LinkState::Dijk(){
-  map<int, map<int,TopoLink>>::const_iterator i;
+  map<int, map<int,TopoLink> >::const_iterator i;
   for(i = routing_table.topo.begin(); i != routing_table.topo.end(); i++){
     routing_table.topo[i->first][i->first].cost = 0;
   }
@@ -59,16 +59,16 @@ void LinkState::Dijk(){
     int minNode = MAX_INT;
     for (i = routing_table.topo.begin(); i != routing_table.topo.end(); i++) {
       std::cout << "Node: " << i->first << std::endl;
-      if (visited.count(i->first) < 1 && distance[i->first] <= minNode) {
+      if (visit.count(i->first) < 1 && distance[i->first] <= minNode) {
         minNode = distance[i->first];
         k = i->first;
       }
     }
     std::cout << "Node: " << k << std::endl;
-    visited.insert(k);
+    visit.insert(k);
     for (i = routing_table.topo.begin(); i != routing_table.topo.end(); i++) {
       int g = i->first;
-      if (visited.count(g) < 1 && routing_table.topo[k][g].cost != -1 && distance[k] != MAX_INT && distance[k] + routing_table.topo[k][g].cost < distance[g]) {
+      if (visit.count(g) < 1 && routing_table.topo[k][g].cost != -1 && distance[k] != MAX_INT && distance[k] + routing_table.topo[k][g].cost < distance[g]) {
         distance[g] = distance[k] + routing_table.topo[k][g].cost;
         previous[g] = k;
       }
