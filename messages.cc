@@ -50,8 +50,8 @@ RoutingMessage::RoutingMessage(int n, map<int, TopoLink> d){
 ostream &RoutingMessage::Print(ostream &os) const
 {
 	os << "DistanceVector RoutingMessage()";
-	os << "NODE: " << node << std::endl;
-	os << "DistanceVector: " << d << std::endl;
+	//os << "NODE: " << node << std::endl;
+	//os << "DistanceVector: " << d << std::endl;
 	return os;
 }
 #endif
