@@ -27,7 +27,7 @@ void LinkState::LinkHasBeenUpdated(Link* l) {
     int source = l->GetSrc();
     int lat = l->GetLatency();
     routing_table.topo[source][dest].cost = lat;
-    routing_table.topo[source][dest].age++; /////////////////////////////////////////////CHECK///////////////////////////
+    routing_table.topo[source][dest].age++; 
     int age = routing_table.topo[source][dest].age;
     Dijk();
     routing_table.changed = true;
