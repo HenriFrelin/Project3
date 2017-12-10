@@ -22,8 +22,8 @@ DistanceVector::~DistanceVector() {}
 /** Write the following functions.  They currently have dummy implementations **/
 void DistanceVector::LinkHasBeenUpdated(Link* l) {
     cerr << *this << ": Link Update: " << *l << endl;
-    int destination = l->getDest();
-    int latency = l->getLatency();
+    int destination = l->GetDest();
+    int latency = l->GetLatency();
     routing_table.neighborLinks[destination].cost = latency;
     routing_table.distanceVector[destination].cost = -1;
     routing_table.topo[destination][destination].cost = 0;
@@ -72,7 +72,7 @@ bool DistanceVector::updateDV(){
   map<int,TopoLink>:: const_iterator n;
   for(i = routing_table.distanceVector.begin(); i != routing_table.distanceVector.end(); i++){
     int node = i->first;
-    if((unsigned)curr_node == number){
+    if((unsigned)node == number){
       routing_table.distanceVector[node].cost = 0;
       continue;
     }
