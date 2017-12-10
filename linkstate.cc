@@ -31,7 +31,7 @@ void LinkState::LinkHasBeenUpdated(Link* l) {
     int age = routing_table.topo[source][dest].age;
     Dijk();
     routing_table.changed = true;
-    SendToNeighbors(new RoutingMessage(), age, source, dest, lat);
+    SendToNeighbors(new RoutingMessage(age, source, dest, lat));
 }
 
 void LinkState::Dijk(){
