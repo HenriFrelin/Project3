@@ -23,9 +23,9 @@ LinkState::~LinkState() {}
 /** Write the following functions.  They currently have dummy implementations **/
 void LinkState::LinkHasBeenUpdated(Link* l) {
     cerr << *this << ": Link Update: " << *l << endl;
-    int dest = 1->GetDest();
-    int source = 1->GetSrc();
-    int lat = 1->GetLatency();
+    int dest = l->GetDest();
+    int source = l->GetSrc();
+    int lat = l->GetLatency();
     routing_table.topo[source][dest].cost = lat;
     routing_table.topo[source][dest].age++; /////////////////////////////////////////////CHECK///////////////////////////
     int age = routing_table.topo[source][dest].age;
