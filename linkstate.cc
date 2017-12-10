@@ -86,7 +86,7 @@ void LinkState::ProcessIncomingRoutingMessage(RoutingMessage *m) {
     int destn = m->destination;
     int latency = m->latency;
     int age1 = m->age;
-    if(routing_table.topo[src][destn].cost == -1 || routing_table.topo[src][dest].age < age1){
+    if(routing_table.topo[src][destn].cost == -1 || routing_table.topo[src][destn].age < age1){
       routing_table.topo[src][destn].cost = latency;
       routing_table.topo[src][destn].age = age1;
       Dijk();
@@ -103,10 +103,10 @@ Node* LinkState::GetNextHop(Node *destination) {
   std::cout << "\nNEXT HOP" << destination->GetNumber() << std::endl;
   int hop = destination->GetNumber();
   while((unsigned)routing_table.edgeTo[hop] != number){
-    hop = routing)table.edgeTo[hop];
+    hop = routing_table.edgeTo[hop];
   }
   Node *n = new Node(hop,NULL,0,0);
-  std::cout << "STEP: " << hop << std::end1;
+  std::cout << "STEP: " << hop << std::endl;
   Node *n1 = context->FindMatchingNode(const_cast<Node *>(n));
   return n1;
 }
