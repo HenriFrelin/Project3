@@ -31,7 +31,7 @@ ostream & Table::Print(ostream &os) const
 ostream & Table::Print(ostream &os) const
 {
 	os << "LinkState Table()";
-	map<int,, map<int, TopoLink> >::const_iterator r = topo.begin();
+	map<int, map<int, TopoLink> >::const_iterator r = topo.begin();
 	while(r != topo.end()){
 		map<int, TopoLink>::const_iterator c = (*row).second.begin();
 		os << "SOURCE: " << (*r).first << std::endl;
