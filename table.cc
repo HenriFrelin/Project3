@@ -13,7 +13,7 @@ Table & Table::operator=(const Table & rhs) {
     topo = rhs.topo;
     #if defined(DISTANCEVECTOR)
 	neighborLinks = rhs.neighborLinks;
-	distanceVector = rhs.distanecVector;
+	distanceVector = rhs.distanceVector;
 	edgeTo = rhs.edgeTo;
     #endif
     return *this;
