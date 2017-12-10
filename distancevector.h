@@ -1,6 +1,6 @@
 #ifndef _distancevector
 #define _distancevector
-#define Max_INT 21474783
+#define MAX_INT 21474783
 #include "node.h"
 
 class DistanceVector: public Node {
