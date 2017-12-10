@@ -36,7 +36,7 @@ void DistanceVector::ProcessIncomingRoutingMessage(RoutingMessage *m) {
     cerr << *this << " got a routing message: " << *m << " (ignored)" << endl;
     routing_table.topo[m->node] = m-> distanceVector;
     map<int,TopoLink>::const_iterator i;
-    for(i = m->distanceVector.begin(); i != m->distanceVector.end(); i++){ //////////////////////////////CHECK THIS////////////////////
+    for(i = m->distanceVector.begin(); i != m->distanceVector.end(); i++){ 
       if(routing_table.distanceVector[i->first].cost == -1){
         //do something
       }
