@@ -22,12 +22,12 @@ DistanceVector::~DistanceVector() {}
 /** Write the following functions.  They currently have dummy implementations **/
 void DistanceVector::LinkHasBeenUpdated(Link* l) {
     cerr << *this << ": Link Update: " << *l << endl;
-    int destination = l.getDest();
-    int letency = l.getLatency();
+    int destination = l->getDest();
+    int latency = l->getLatency();
     routing_table.neighborLinks[destination].cost = latency;
     routing_table.distanceVector[destination].cost = -1;
-    routing_table.topo[destination].cost = 0;
-    if(update()){
+    routing_table.topo[destination][destination].cost = 0;
+    if(updateDV()){
       SendToNeighbors(new RoutingMessage(number, routing_table.distanceVector));
     }
 }
