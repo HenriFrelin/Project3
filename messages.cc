@@ -25,8 +25,8 @@ ostream &RoutingMessage::Print(ostream &os) const
 RoutingMessage::RoutingMessage(int a, int s, int d, int l){
 	age = a;
 	source = s;
-	dest = d;
-	lat = l;
+	destination = d;
+	latency = l;
 	
 }
 
