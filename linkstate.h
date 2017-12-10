@@ -1,6 +1,6 @@
 #ifndef _linkstate
 #define _linkstate
-#define Max_INT 21474783
+#define MAX_INT 21474783
 #include "node.h"
 
 class LinkState: public Node {
